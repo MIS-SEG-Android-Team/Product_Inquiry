@@ -1,6 +1,5 @@
-plugins {
-    id 'com.android.library'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     namespace 'org.rmj.guanzongroup.ganado'
@@ -28,6 +27,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    publishing {
+
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+
+        singleVariant('debug') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 dependencies {
@@ -40,4 +52,33 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
+}
+
+
+afterEvaluate{
+
+    publishing {
+
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.rmj'
+                artifactId = 'product_inquiry'
+                version = '1.1'
+            }
+        }
+
+
+        repositories {
+            maven {
+                name = 'GitHubPackages'
+                url = uri("https://github.com/MIS-SEG-Android-Team/AppDriver")
+                credentials {
+                    username = project.findProperty("gpr.user") ?: System.getenv("mikegarcia8748")
+                    password = project.findProperty("gpr.key") ?: System.getenv("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")
+                }
+            }
+        }
+    }
 }
