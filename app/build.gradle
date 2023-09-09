@@ -7,7 +7,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "org.rmj.guanzongroup.productinquiry"
+        applicationId "org.rmj.guanzongroup.inquiry"
         minSdk 24
         targetSdk 33
         versionCode 1

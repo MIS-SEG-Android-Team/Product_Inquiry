@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 android {
-    namespace 'org.rmj.guanzongroup.ganado'
+    namespace 'org.rmj.guanzongroup.productinquiry'
     compileSdk 34
 
     defaultConfig {
