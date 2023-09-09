@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'org.rmj.guanzongroup.productinquiry'
+    namespace 'org.rmj.guanzongroup.inquiry'
     compileSdk 33
 
     defaultConfig {
