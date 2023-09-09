@@ -69,11 +69,10 @@ afterEvaluate{
             }
         }
 
-
         repositories {
             maven {
                 name = 'GitHubPackages'
-                url = uri("https://github.com/MIS-SEG-Android-Team/AppDriver")
+                url = uri("https://github.com/MIS-SEG-Android-Team/Product_Inquiry")
                 credentials {
                     username = project.findProperty("gpr.user") ?: System.getenv("mikegarcia8748")
                     password = project.findProperty("gpr.key") ?: System.getenv("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")
